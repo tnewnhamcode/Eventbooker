@@ -1,0 +1,16 @@
+<form method="post" autocomplete="off">
+    {% csrf_token%}
+    {{form.as_p}}
+    <button type="submit">Submit </button>
+   
+</form>
+{% if form.password.errors %}    
+<div class="error">
+    {{form.password.errors}}    <!--there's no % because its getting
+                              something
+                            attached to context. there is a %
+                             above because of the if word making 
+                             it logic
+                            -->      
+</div>
+{% endif %}

@@ -1,0 +1,63 @@
+{% load static %}  <!--this is neccessary in order to use the static tag later (its loading in all the static shit. like importing a module.) -->
+<html lang="en"></html> 
+    <head>
+        <meta charset="utf-8">  
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Home page</title>
+        <link  href="{%static 'posts/styles.css'%}" rel="stylesheet" type="text/css">  <!--Apperently rel is short for relationship and its neccessary otherwise the styles might not be applied right-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    </head>    
+    
+    <body class="border border-primary border-secondary border-left">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light jomomma">
+            <div class="container-fluid" >
+              <a class="navbar-brand" href="#">Contact us</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    {%if not request.user.is_authenticated%}
+                    <a class="nav-link active" aria-current="page" href="{%url 'create_account'%}">Create Account</a>
+                    {%else%}
+                    <a class="nav-link active" aria-current="page" href="{%url 'profile'%}">{{user.username}}</a>
+                    {%endif%}
+                  </li>
+                  <li class="nav-item">
+                    {%if request.user.is_authenticated%}
+                    <a class="nav-link" href="{%url 'logout1'%}">Logout</a>
+                    {%else%}
+                    <a class="nav-link" href="{%url 'login'%}">Login</a>
+                    {%endif%}
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Don't bother
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">umm</a></li>
+                      <li><a class="dropdown-item" href="#">ummmm</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">anyway</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    <h1 class="display-3 text-center text-decoration-underline markhenry" >Events </h1> <!-- I think you can just use premade classes. It seems you can just add in as many as you want, just have a blank space to seperate them (same thing with regular css).. like someone has made a text center css class and you can just add it in like a shortcut -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>              
+    <!-- I believe the script tag is used to embed or refer to Javascript tag. (and src 'specifies the URL of an external script' (i didnt download it, its literally a web url)) The link that's referenced looks nearly identitcal the the link tag above for the bootstrap css. So its the same its just different for linking javascript sense. -->
+    <div class="display-6 text-center mt-5 jomomma">
+    <a href="{%url 'Funtime Disco'%}" class="jomomma">Funtime Disco</a>
+    <br> </br> <!-- Thi is needed because a tags are for some reason in line elements so put themselves on the same line as one another la -->
+    <a href="{%url 'Badass TEchno eXtremity'%}" class="boys jomomma">Badass TEchno eXtremity</a>
+    <br></br>
+    <a href="{%url 'love and that&#39;s all'%}" class="boy jomomma">Love and that's all</a>  
+    <br> </br>    <!-- that weird bit is a 'HTML entity' (catchy) because single quotes is a special character in html (used for stuff)-->
+    <a href="{%url 'Bowling Bonanza'%}" class="boys jomomma">Bowling bonanza</a>   
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-EA0IZ59K0F9908j1v1Q7q5qzE7984jz84JjV8hx9Tj5TkR7ZZK5jz8v3MZY6V9" crossorigin="anonymous"></script>
+    </body>

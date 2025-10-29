@@ -1,0 +1,13 @@
+{%if messages%}
+    <ul>
+        {%for message in messages%}
+        <li>{{message}}</li>
+        {%endfor%}
+    </ul>
+    {%endif%}    
+    
+    <a href="/">Return home</a>   <!--` the backslash shows that its the start of a route, 
+    so it gets rid of all previous path if you put in front of the bit you want. which
+     in this case is an empty thing, 
+    because home is empty. sense `-->
+    

@@ -1,0 +1,73 @@
+{% load static %}  <!--this is neccessary in order to use the static tag later (its loading in all the static shit. like importing a module.) -->
+<html lang="en"></html> 
+    <head>
+        <meta charset="utf-8">  
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Funtime Disco</title>
+        <link  href="{%static 'posts/styles.css'%}" rel="stylesheet" type="text/css">  <!--Apperently rel is short for relationship and its neccessary otherwise the styles might not be applied right-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    </head>    
+    
+    <body class="border border-primary border-secondary border-left">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light jomomma">
+            <div class="container-fluid" >
+              <a class="navbar-brand" href="#">Contact us</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    {%if not request.user.is_authenticated%}
+                    <a class="nav-link active" aria-current="page" href="{%url 'create_account'%}">Create Account</a>
+                    {%else%}
+                    <a class="nav-link active" aria-current="page" href="{%url 'profile'%}">{{user.username}}</a>
+                    {%endif%}
+                  </li>
+                  <li class="nav-item">
+                    {%if request.user.is_authenticated%}
+                    <a class="nav-link" href="{%url 'logout1'%}">Logout</a>
+                    {%else%}
+                    <a class="nav-link" href="{%url 'login'%}">Login</a>
+                    {%endif%}
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Don't bother
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#">umm</a></li>
+                      <li><a class="dropdown-item" href="#">ummmm</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#">anyway</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+   <h1>Funtime Disco </h1>
+   <div class="ms-2 mt-2">
+  
+
+        <p>Location- Norwich</p>
+        <div> </div>
+        <p> Address- 123 Butcher's Lane</p>
+        <div></div>
+        <p class="ml-5">Event type- Disco</p>
+        <div> </div>
+        <p>
+           Hey there! Welcome to the annual Funtime Disco!
+            You are cordially invited to have a 
+           Boogtastic time! 
+           Bring the whole family (and your ticket)!
+           Boogie starts at 7 and finishes at Midnight!
+        </p>
+
+        <a href="payscreen/">Get Ticket!</a>
+    </div>
+  
+    <br></br>
+    <a class="ms-2" href="/"> Home</a> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-EA0IZ59K0F9908j1v1Q7q5qzE7984jz84JjV8hx9Tj5TkR7ZZK5jz8v3MZY6V9" crossorigin="anonymous"></script>
+        </body> I MAY NEED TO GET AN EARLIER VERSION (4.6) OF BOOTSTRAP FOR THE TOGGLE BUTTON TO WORK (HOWS THAILAND ARE YOU STILL DOWN? HOLD OUT)

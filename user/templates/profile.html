@@ -1,0 +1,18 @@
+<h1>{{user.username}}</h1>
+
+
+
+
+<p>User details:-
+</p>
+<span style="display:inline;">   Email: {{user.email}} </span> <span style="display:inline;"> <a href="{%url 'login3'%}"> ~Update</a> </span>
+</p> <!-- This lil puppy (the p closing tag) breaks up the span somehow. I think everything thats in consecutive inline span is on the same line, this random shit breaks that -->
+<span style="display: inline;">   Mobile Number: {{request.user.mobile}} </span>  
+<span style="display: inline;"> <a href="{%url 'login2'%}" class="changenum"> ~ Update </a> </span> 
+<p>&nbsp;</p>
+<p>Purchase history-</p>
+{% for item in user.purchase_history1.all %}
+    <p>You have paid for this event-{{ item.purchase_history }} </p>
+{% endfor %}
+
+<a href="{%url 'home'%}">Home</a>
